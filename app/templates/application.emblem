@@ -1,2 +1,7 @@
 .container-fluid
-  == outlet
+  if session.isAuthenticated
+    |Logged in as {{session.currentUser.displayName}}
+    = bs-button onClick=(action 'signOut') |Sign out
+    == outlet
+  else
+    = bs-button onClick=(action 'signIn' "google") |Sign in with Google

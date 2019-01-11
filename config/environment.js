@@ -23,6 +23,9 @@ module.exports = function(environment) {
       databaseURL: 'https://ember-upwork.firebaseio.com',
       storageBucket: 'ember-upwork.appspot.com',
     },
+    torii: {
+      sessionServiceName: 'session'
+    },
 
     APP: {
       // Here you can pass flags/options to your application instance
