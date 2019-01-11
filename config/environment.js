@@ -17,6 +17,13 @@ module.exports = function(environment) {
       }
     },
 
+    firebase: {
+      apiKey: 'AIzaSyC6Dsh8S1su3jA1TmMllTElA4XnWplX_Jg',
+      authDomain: 'ember-upwork.firebaseapp.com',
+      databaseURL: 'https://ember-upwork.firebaseio.com',
+      storageBucket: 'ember-upwork.appspot.com',
+    },
+
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
