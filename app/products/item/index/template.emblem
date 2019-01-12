@@ -1,4 +1,5 @@
 .row
   .col= model.title
+  .col: pre: code= model.description
   .col-1
     img.img-fluid src="#{model.image_url}"

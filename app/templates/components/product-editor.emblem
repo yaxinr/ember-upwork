@@ -4,6 +4,7 @@
   = modal.body
     = bs-form formLayout='horizontal' model=model onSubmit=(action 'save') as |form|
       = form.element controlType='text' label='Title' property='title' required=true
+      = form.element controlType='textarea' label='Description' property='description' required=true
       .row
         .col-sm-4
           img#output.img-fluid src="#{model.image_url}"
