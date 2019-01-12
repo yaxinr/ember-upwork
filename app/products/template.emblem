@@ -15,5 +15,7 @@
           td= link-to 'products.item' product
             = product.title
           td
-            = link-to 'products.item.edit' product |Edit
+            = link-to 'products.item.edit' product class='btn btn-secondary' |Edit
+            = bs-button type="danger" onClick=(action "removeItem" product)
+              |X
 == outlet
