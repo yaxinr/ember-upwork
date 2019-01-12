@@ -1,0 +1,9 @@
+= bs-modal open=modalVisible size='lg' onHidden=(action 'discard') as |modal|
+  = modal.header
+    |new
+  = modal.body
+    = bs-form formLayout='horizontal' model=model onSubmit=(action 'save') as |form|
+      = form.element controlType='text' label='Title' property='title' required=true
+      = bs-alert type="danger" dismissible=true fade=false visible=controllerErrorMessage
+        = controllerErrorMessage
+      = bs-button id='add-item' defaultText='submit' type="primary" buttonType="submit"

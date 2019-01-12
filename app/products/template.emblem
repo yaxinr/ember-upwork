@@ -1,6 +1,4 @@
 .row
-  = link-to 'products.new' |New 
-.row
   .col
     table#products.table.table-bordered.table-sm
       thead: tr
@@ -11,3 +9,4 @@
           td= link-to 'products.item' product
             = product.id
           td= product.title
+== outlet
