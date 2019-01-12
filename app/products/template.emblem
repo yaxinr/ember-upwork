@@ -1,6 +1,10 @@
 .row
   = link-to 'products.new' class='btn btn-secondary' |New 
 .row
+  = bs-form formLayout='inline' model=this onSubmit=(action 'searchByTitle') as |form|
+    = form.element controlType='text' label='Search' property='search_title' required=true
+    = bs-button defaultText='submit' type="primary" buttonType="submit"
+.row
   .col
     table#products.table.table-bordered.table-sm
       thead: tr
