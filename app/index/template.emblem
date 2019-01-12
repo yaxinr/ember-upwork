@@ -1,13 +1,1 @@
-.row
-  = link-to 'products.new' |New 
-.row
-  .col
-    table#products.table.table-bordered.table-sm
-      thead: tr
-        th ID
-        th Title
-      tbody: each model as |product|
-        tr
-          td= link-to 'products.item' product
-            = product.id
-          td= product.title
+= products-list
