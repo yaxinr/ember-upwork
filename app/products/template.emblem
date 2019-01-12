@@ -1,12 +1,16 @@
 .row
+  = link-to 'products.new' |New 
+.row
   .col
     table#products.table.table-bordered.table-sm
       thead: tr
-        th ID
+        th Photo
         th Title
       tbody: each model as |product|
         tr
+          td
+            if product.image_url
+              img height=50 src="#{product.image_url}"
           td= link-to 'products.item' product
-            = product.id
-          td= product.title
+            = product.title
 == outlet

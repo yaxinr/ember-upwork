@@ -1,2 +1,4 @@
 .row
   .col= model.title
+  .col-1
+    img.img-fluid src="#{model.image_url}"

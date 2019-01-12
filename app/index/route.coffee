@@ -1,6 +1,9 @@
 import Route from '@ember/routing/route'
 
 export default Route.extend
-  model: ->
-    @get 'store'
-    .findAll 'product'
+  redirect: ->
+    @transitionTo 'products.index'
+    return
+  # model: ->
+  #   @get 'store'
+  #   .findAll 'product'
