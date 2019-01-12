@@ -1,28 +1,33 @@
-import Controller from '@ember/controller'
+import Component from '@ember/component'
 import { inject } from '@ember/service'
 
-export default Controller.extend
+export default Component.extend
   firebaseApp: inject()
+  router: inject()
+  init: ->
+    @_super arguments...
+    @set 'modalVisible', true
   actions:
     save: (params) ->
       self = @
-      store = @get 'store'
-      obj = @get 'model'
+      @get 'model'
       .save()
       .then (product) ->
-        self.transitionToRoute 'products.item', product
+        self.get('router').transitionTo 'products.item', product
         self.set 'controllerErrorMessage', undefined
       , (reason) ->
         self.set 'controllerErrorMessage', reason.message
     discard: ->
-      @transitionToRoute 'index'
+      @get('router').transitionTo 'index'
     didSelectImage: (data) ->
       self = @
       storage = @get('firebaseApp').storage()
       storageRef = storage.ref()
       console.log(data)
       file = data
-      uploadTask = storageRef.child('images/' + file[0].name).put(file[0])
+      id = @get 'model'
+      .get 'id'
+      uploadTask = storageRef.child('images/' + id).put file[0]
       uploadTask.on 'state_changed',
         (snapshot) ->
           progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;

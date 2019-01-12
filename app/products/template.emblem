@@ -1,11 +1,12 @@
 .row
-  = link-to 'products.new' |New 
+  = link-to 'products.new' class='btn btn-secondary' |New 
 .row
   .col
     table#products.table.table-bordered.table-sm
       thead: tr
         th Photo
         th Title
+        th Actions
       tbody: each model as |product|
         tr
           td
@@ -13,4 +14,6 @@
               img height=50 src="#{product.image_url}"
           td= link-to 'products.item' product
             = product.title
+          td
+            = link-to 'products.item.edit' product |Edit
 == outlet

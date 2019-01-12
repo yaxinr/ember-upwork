@@ -8,7 +8,8 @@ Router = EmberRouter.extend(
 
 Router.map ->
   @route 'products', ->
-    @route 'item', path: '/:product_id'
+    @route 'item', path: '/:product_id', ->
+      @route 'edit'
     @route 'new'
 
 export default Router

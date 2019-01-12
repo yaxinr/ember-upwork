@@ -1,0 +1,14 @@
+= bs-modal open=modalVisible size='lg' onHidden=(action 'discard') as |modal|
+  = modal.header
+    |new
+  = modal.body
+    = bs-form formLayout='horizontal' model=model onSubmit=(action 'save') as |form|
+      = form.element controlType='text' label='Title' property='title' required=true
+      .row
+        .col-sm-4
+          img#output.img-fluid src="#{model.image_url}"
+        .col-sm-8
+          = x-file-input class='btn btn-secondary' multiple=false name='files' action=(action 'didSelectImage') accept='image/*' alt='Upload Image'
+      = bs-alert type="danger" dismissible=true fade=false visible=controllerErrorMessage
+        = controllerErrorMessage
+      = bs-button id='add-item' defaultText='submit' type="primary" buttonType="submit"
